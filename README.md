@@ -1,106 +1,99 @@
+# ☀️ Cross-Country Solar Potential Analysis – Final Report
 
-# 🌞 Solar Challenge Week 1 - 10 Academy
-
-This repository contains the setup and exploratory work for the **B5W0: Solar Data Discovery** challenge, part of the 10 Academy Week 0 assessment. The goal is to analyze solar radiation data from Benin, Togo, and Sierra Leone to identify high-potential regions for solar energy investment.
-
----
-
-## 📁 Project Structure
-
-```
-
-solar-challenge-week1/
-├── .vscode/              # Editor-specific settings
-├── .github/workflows/    # CI workflow for Python env
-├── src/                  # Core Python modules
-├── notebooks/            # Jupyter notebooks for EDA
-├── tests/                # Unit tests (TBD)
-├── scripts/              # Utility scripts
-├── data/                 # Local data folder (ignored in git)
-├── .gitignore
-├── requirements.txt
-├── README.md
-
-````
+**Author:** Fitsum Helina  
+**Program:** 10 Academy Week 0 Challenge – Solar Data Discovery  
+**Date:** May 21, 2025  
 
 ---
 
-## 🛠️ Setup Instructions
+## 🔍 1. Introduction
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/Fitsumhelina/solar-challenge-week1.git
-cd solar-challenge-week1
-````
-
-### 2. Create and Activate Virtual Environment
-
-**Option A: venv**
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-**Option B: conda**
-
-```bash
-conda create -n solar-env python=3.10 -y
-conda activate solar-env
-```
-
-### 3. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
+MoonLight Energy Solutions is exploring solar investment opportunities across West Africa. This project analyzes environmental sensor data from **Benin**, **Togo**, and **Sierra Leone** to identify regions with high solar potential and recommend data-driven investment strategies.
 
 ---
 
-## ⚙️ Continuous Integration (CI)
+## 🧠 2. Data Understanding
 
-GitHub Actions is configured to:
-
-* Install dependencies from `requirements.txt`
-* Print Python version
-
-File: `.github/workflows/ci.yml`
-
----
-
-## 🚀 Task 1 Summary
-
-✅ GitHub repo initialized
-✅ Virtual environment created (`venv`)
-✅ `.gitignore` includes cache, `.csv`, and data
-✅ CI/CD pipeline setup with GitHub Actions
-✅ PR merged from `setup-task` branch into `main`
+The dataset includes hourly measurements of solar and environmental variables:
+- **Irradiance**: GHI, DNI, DHI
+- **Sensor Outputs**: ModA, ModB
+- **Weather Conditions**: Temperature, Wind Speed/Direction, Humidity, Precipitation
+- **Cleaning Events**: Binary flag indicating sensor/module cleaning
 
 ---
 
-## 📊 Upcoming Work
+## 🧹 3. EDA & Cleaning Summary
 
-Next steps include:
+### 📍 Benin
+- **GHI values stable and consistent**, with moderate DNI and DHI.
+- Cleaning events show measurable improvement in ModA/B readings.
+- Minor outliers handled using Z-scores.
+- **Conclusion**: Strong solar profile, especially in terms of reliability.
 
-* Exploratory Data Analysis on solar data (Task 2)
-* Cleaned dataset preparation
-* Comparative analytics (Task 3)
-* Streamlit dashboard development (Bonus)
+### 📍 Togo
+- Slightly lower GHI, but higher DNI variability.
+- Clear impact of cleaning on module performance.
+- RH vs Temp showed less correlation, suggesting local microclimates.
+
+### 📍 Sierra Leone
+- Broad range of GHI values, with more atmospheric interference (DHI ↑).
+- Wind direction highly variable — potential implications for sensor placement.
+- Overall more noisy than Benin or Togo.
 
 ---
 
-## 📅 Submission Timeline
+## 📊 4. Cross-Country Comparison
 
-* Interim Submission: **May 18, 2025**
-* Final Submission: **May 21, 2025**
+### 📌 Boxplot Summary
+![](your_local_screenshot_or_plot_placeholder.png)
+
+- **Benin** had the highest **median GHI** with tight spread.
+- **Togo** showed consistent but slightly lower irradiance.
+- **Sierra Leone** had the most variability — possibly less predictable.
+
+### 📈 Statistical Test (ANOVA on GHI)
+- **P-value**: 0.000 → statistically significant differences across countries.
+
+### 🏆 GHI Ranking (Mean)
+1. Benin
+2. Togo
+3. Sierra Leone
 
 ---
 
-## 👨‍💻 Author
+## 🌐 5. Streamlit Dashboard
 
-**Fitsum Helina**
-Trainee @ 10 Academy
-3rd Year Software Engineering Student | Debre Berhan University
+- Interactive UI allows users to:
+  - Select countries
+  - View irradiance stats & distribution
+  - Compare GHI rankings visually
 
-```
+📸 **Dashboard Screenshot:**
+![Dashboard](dashboard_screenshots/dashboard.png)
+
+---
+
+## 💡 6. Recommendation
+
+**Benin** is the top candidate for investment due to:
+- Highest and most stable GHI values
+- Strong sensor consistency and low variance
+- Low cleaning-related performance dips
+
+**Togo** is a viable backup with fewer anomalies.  
+**Sierra Leone** may require more site-specific evaluation due to variability.
+
+---
+
+## 📘 7. Reflections
+
+- This project taught me to handle real-world time series data, build robust EDA pipelines, and deploy dashboards.
+- I learned how to apply CI/CD, GitHub best practices, and statistical tests to drive meaningful insights.
+- Time management and quick iteration were crucial.
+
+---
+
+## 🧩 8. Appendix (optional)
+
+- Links to full notebooks: [`github`](https://github.com/Fitsumhelina/solar-challenge-week1.git)
+- Source datasets: available via [10 Academy shared drive]
