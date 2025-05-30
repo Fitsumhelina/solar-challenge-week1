@@ -17,3 +17,7 @@ pynance
 textblob
 nltk
 
+# test
+pytest
+
+
