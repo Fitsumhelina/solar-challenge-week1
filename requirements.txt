@@ -1,23 +1,13 @@
-# Core data analysis
 pandas
 numpy
-
-# Visualization
 matplotlib
 seaborn
-
-# Stock data
 yfinance
-
-# Technical analysis
 pandas-ta
 pynance
-
-# NLP for sentiment analysis
 textblob
 nltk
-
-# test
 pytest
+
 
 
