@@ -17,5 +17,3 @@ pynance
 textblob
 nltk
 
-# Utilities
-python-dotenv  # if you plan to load env vars (optional)
